@@ -8,6 +8,9 @@ yum -y install python
 yum -y install python-pip
 yum -y install python-devel
 
+# Install Nano
+yum -y install nano
+
 # Install PostgreSQL and its headers
 yum -y install postgresql
 yum -y install postgresql-server
