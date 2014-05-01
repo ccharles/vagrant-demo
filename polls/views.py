@@ -1,20 +1,19 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-#from polls.models import Question
+from polls.models import Poll
 
 # Create your views here.
-def detail(request, question_id):
-    return HttpResponse("You're looking at question %s." % question_id)
+def detail(request, poll_id):
+    return HttpResponse("You're looking at poll %s." % poll_id)
 
-def results(request, question_id):
-    response = "You're looking at the results of question %s."
-    return HttpResponse(response % question_id)
+def results(request, poll_id):
+    response = "You're looking at the results of poll %s."
+    return HttpResponse(response % poll_id)
 
-def vote(request, question_id):
-    return HttpResponse("You're voting on question %s." % question_id)
+def vote(request, poll_id):
+    return HttpResponse("You're voting on poll %s." % poll_id)
 
 def index(request):
-	return HttpResponse("hello world!")
-	latest_question_list = Question.objects.order_by('-pub_date')[:5]
-	output = ', '.join([p.question_text for p in latest_question_list])
+	latest_poll_list = Poll.objects.order_by('-pub_date')[:5]
+	output = ', '.join([p.question for p in latest_poll_list])
 	return HttpResponse(output)
